@@ -32,7 +32,7 @@
 ## Sumário
 
 - [Visão geral](#visão-geral)
-- [Telas e como usar](#telas-e-como-usar)
+- [Telas](#telas)
 - [Arquitetura](#arquitetura)
 - [Como rodar](#como-rodar)
 - [Banco de dados](#banco-de-dados)
@@ -57,63 +57,20 @@ O PYSQL Interface resolve o básico de qualquer cadastro: guardar pessoas, achá
 | **Persistência** | Tudo é gravado na hora em um arquivo SQLite (`clientes.db`). O banco é criado sozinho na primeira execução. |
 | **Sem instalação** | O executável da pasta `dist/` roda no Windows sem Python instalado. |
 
-## Telas e como usar
+## Telas
 
-A janela se chama **PYSQL versão 1.0**. À esquerda ficam os campos e os botões, e à direita a lista de clientes. As telas abaixo usam dados fictícios.
+A janela se chama **PYSQL versão 1.0**: campos e botões à esquerda, lista de clientes à direita. As telas usam dados fictícios.
 
-### 1. Tela inicial
-
-Ao abrir, a lista está vazia e o banco acabou de ser criado.
-
-<p align="center">
-  <img src="docs/images/tela-inicial.png" alt="Tela inicial com os campos vazios e a lista sem clientes">
-</p>
-
-### 2. Cadastrar
-
-Preencha **Nome**, **Sobrenome**, **Email** e **CPF** e clique em **Inserir**.
-
-<p align="center">
-  <img src="docs/images/tela-cadastro.png" alt="Formulário preenchido com os dados de um cliente, pronto para inserir">
-</p>
-
-### 3. Listar
-
-Depois de inserir, a lista mostra todos os clientes no formato `id nome sobrenome email cpf`. O botão **Ver todos** faz o mesmo a qualquer momento, por exemplo depois de uma busca.
-
-<p align="center">
-  <img src="docs/images/tela-lista.png" alt="Lista com quatro clientes cadastrados">
-</p>
-
-### 4. Buscar
-
-Preencha um ou mais campos e clique em **Buscar**. O resultado mostra os clientes que tenham exatamente aquele valor em qualquer um dos campos preenchidos (veja [Limitações](#limitações-e-próximos-passos)). Na tela abaixo, a busca por sobrenome `Lima` trouxe um único cliente.
-
-<p align="center">
-  <img src="docs/images/tela-busca.png" alt="Busca pelo sobrenome Lima retornando um cliente">
-</p>
-
-### 5. Editar
-
-Clique em um cliente na lista. Os dados dele sobem para os campos, e o cliente fica marcado.
-
-<p align="center">
-  <img src="docs/images/tela-edicao.png" alt="Cliente selecionado na lista com os dados carregados nos campos">
-</p>
-
-Altere o que quiser (aqui, o e-mail) e clique em **Atualizar Selecionados**. A lista é recarregada já com a mudança.
-
-<p align="center">
-  <img src="docs/images/tela-atualizado.png" alt="Lista após atualizar o e-mail do segundo cliente">
-</p>
-
-### 6. Excluir
-
-Selecione o cliente e clique em **Deletar Selecionados**. Ele sai do banco e da lista.
-
-<p align="center">
-  <img src="docs/images/tela-excluido.png" alt="Lista após excluir um cliente, com três clientes restantes">
-</p>
+| | |
+|---|---|
+| <img src="docs/images/tela-inicial.png" alt="Tela inicial com os campos vazios e a lista sem clientes"> | <img src="docs/images/tela-cadastro.png" alt="Formulário preenchido com os dados de um cliente, pronto para inserir"> |
+| **Início**: banco recém-criado, campos vazios e lista sem clientes. | **Cadastrar**: preencha nome, sobrenome, e-mail e CPF e clique em **Inserir**. |
+| <img src="docs/images/tela-lista.png" alt="Lista com quatro clientes cadastrados"> | <img src="docs/images/tela-busca.png" alt="Busca pelo sobrenome Lima retornando um cliente"> |
+| **Listar**: a lista mostra `id nome sobrenome email cpf` e atualiza sozinha a cada alteração. **Ver todos** recarrega quando quiser. | **Buscar**: preencha um ou mais campos e clique em **Buscar**. Aqui, o sobrenome `Lima` trouxe um cliente. |
+| <img src="docs/images/tela-edicao.png" alt="Cliente selecionado na lista com os dados carregados nos campos"> | <img src="docs/images/tela-atualizado.png" alt="Lista após atualizar o e-mail do segundo cliente"> |
+| **Selecionar**: clicar em um cliente da lista carrega os dados dele nos campos. | **Atualizar**: com o e-mail alterado, **Atualizar Selecionados** regrava o cliente e recarrega a lista. |
+| <img src="docs/images/tela-excluido.png" alt="Lista após excluir um cliente, com três clientes restantes"> | <img src="docs/images/tela-sem-resultado.png" alt="Busca pelo sobrenome em minúsculas sem nenhum resultado"> |
+| **Excluir**: **Deletar Selecionados** remove o cliente escolhido do banco e da lista. | **Sem resultado**: a busca é exata e diferencia maiúsculas, então `lima` não encontra `Lima`. |
 
 O botão **Fechar** encerra o aplicativo.
 
